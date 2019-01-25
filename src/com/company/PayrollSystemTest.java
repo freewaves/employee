@@ -16,11 +16,15 @@ calculate the payroll for each Employee (polymorphically), and add a $100.00 bon
 payroll amount if the current month is the one in which the Employee ’s birthday occurs.
 */
 package com.company;
+import javax.swing.*;
 import java.util.Scanner;
 import java.lang.String;
 import java.util.ArrayList;
 public class PayrollSystemTest {
-
+private JRadioButton jRadioButtonSalary = new JRadioButton("Salary Employee");
+    private JRadioButton jRadioButtonCommission = new JRadioButton("Commission Employee");
+    private JRadioButton jRadioButtonBasedSalaried = new JRadioButton("Based & Salaied Employee");
+    private JRadioButton jRadioButtonHourly = new JRadioButton("Hourly Employee");
     public static void main(String[] args) {
 
         //salaried commission employees are rewarded 10%
@@ -70,5 +74,8 @@ public class PayrollSystemTest {
         double comRate= input.nextDouble();
         comEmployee.setCommissionRate(comRate);
         */
+    }
+    private void initPanel (){
+
     }
 }
