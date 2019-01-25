@@ -17,16 +17,30 @@ payroll amount if the current month is the one in which the Employee ’s birthd
 */
 package com.company;
 import javax.swing.*;
+import java.awt.*;
 import java.util.Scanner;
 import java.lang.String;
 import java.util.ArrayList;
-public class PayrollSystemTest {
+import java.awt.event.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+public class PayrollSystemTest extends JFrame {
 private JRadioButton jRadioButtonSalary = new JRadioButton("Salary Employee");
     private JRadioButton jRadioButtonCommission = new JRadioButton("Commission Employee");
     private JRadioButton jRadioButtonBasedSalaried = new JRadioButton("Based & Salaied Employee");
     private JRadioButton jRadioButtonHourly = new JRadioButton("Hourly Employee");
-    public static void main(String[] args) {
+    private JButton jButtonNext = new JButton("Next");
+    private JLabel labelEmployeeType = new JLabel("EmployeeType");
+    private JPanel panelEmployeeType;
 
+
+    public PayrollSystemTest() {
+        initPanel();
+        initFrame();
+    }
+
+    public static void main(String[] args) {
+        new PayrollSystemTest();
         //salaried commission employees are rewarded 10%
         Date today =new Date(1,18,2019);
         Date myBirthday= new Date(12,2,1989);
@@ -75,7 +89,34 @@ private JRadioButton jRadioButtonSalary = new JRadioButton("Salary Employee");
         comEmployee.setCommissionRate(comRate);
         */
     }
-    private void initPanel (){
+    public void initPanel (){
+panelEmployeeType = new JPanel();
+panelEmployeeType.setLayout(new GridLayout(5,5,2,2));
+panelEmployeeType.add(labelEmployeeType);
 
+//ButtonGroup
+ButtonGroup groupEmployeeType = new ButtonGroup();
+        groupEmployeeType.add(jRadioButtonBasedSalaried);
+        groupEmployeeType.add(jRadioButtonCommission);
+        groupEmployeeType.add(jRadioButtonHourly);
+        groupEmployeeType.add(jRadioButtonSalary);
+//End
+
+        panelEmployeeType.add(jRadioButtonBasedSalaried);
+        panelEmployeeType.add(jRadioButtonCommission);
+        panelEmployeeType.add(jRadioButtonHourly);
+        panelEmployeeType.add(jRadioButtonSalary);
+        panelEmployeeType.add(jButtonNext);
+        add(panelEmployeeType);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+    }
+    private void initFrame(){
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        setTitle("Дикобраз");
+        setVisible(true);
+        pack();
+        setLocationRelativeTo(null);
     }
 }
