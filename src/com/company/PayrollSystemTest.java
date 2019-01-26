@@ -21,21 +21,28 @@ import java.awt.*;
 import java.util.Scanner;
 import java.lang.String;
 import java.util.ArrayList;
-import java.awt.event.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+
 public class PayrollSystemTest extends JFrame {
 private JRadioButton jRadioButtonSalary = new JRadioButton("Salary Employee");
     private JRadioButton jRadioButtonCommission = new JRadioButton("Commission Employee");
     private JRadioButton jRadioButtonBasedSalaried = new JRadioButton("Based & Salaied Employee");
     private JRadioButton jRadioButtonHourly = new JRadioButton("Hourly Employee");
     private JButton jButtonNext = new JButton("Next");
+    private JButton jButtonNextRegistration = new JButton("Complete");
+    private JButton jButtonCancelRegistration = new JButton("Cancel");
+    private JButton jButtonBackRegistration = new JButton("Back");
     private JLabel labelEmployeeType = new JLabel("EmployeeType");
+    private JTextField jTextFieldName = new JTextField(15);
+    private JTextField jTextFieldLastName = new JTextField(15);
+    private JTextField jTextFieldSocialSecurityNumber = new JTextField(15);
+    private JTextField jTextFieldDateOfBirth = new JTextField(15);
+    private JTextField jTextFieldWeeklySalary = new JTextField(15);
     private JPanel panelEmployeeType;
+    private JPanel panelRegistration;
 
 
     public PayrollSystemTest() {
-        initPanel();
+        initPanelRegistration();
         initFrame();
     }
 
@@ -89,7 +96,43 @@ private JRadioButton jRadioButtonSalary = new JRadioButton("Salary Employee");
         comEmployee.setCommissionRate(comRate);
         */
     }
-    public void initPanel (){
+    public void initPanelRegistration(){
+        panelRegistration = new JPanel();
+GroupLayout layout = new GroupLayout(getContentPane());
+//getContentPane().setLayout(layout);
+//layout.setAutoCreateGaps(true);
+//layout.setAutoCreateContainerGaps(true);
+
+
+//layout.setHorizontalGroup(layout.createSequentialGroup()
+//.addComponent(jTextFieldDateOfBirth)
+//        .addComponent(jTextFieldName)
+//        .addComponent(jTextFieldLastName)
+//        .addGroup(layout.createSequentialGroup())
+//        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING))
+//        .addComponent(jTextFieldDateOfBirth)
+//        .addComponent(jTextFieldSocialSecurityNumber)
+//        .addComponent(jTextFieldWeeklySalary)
+//
+//);
+
+        panelRegistration.add(jTextFieldName);
+        panelRegistration.add(jTextFieldLastName);
+        panelRegistration.add(jTextFieldDateOfBirth);
+        panelRegistration.add(jTextFieldSocialSecurityNumber);
+        panelRegistration.add(jTextFieldWeeklySalary);
+
+
+        panelRegistration.add(jButtonCancelRegistration);
+        panelRegistration.add(jButtonNextRegistration);
+        panelRegistration.add(jButtonBackRegistration);
+
+        add(panelRegistration);
+        setSize(400 , 230);
+
+    }
+
+    public void initPanelEmployeeType(){
 panelEmployeeType = new JPanel();
 panelEmployeeType.setLayout(new GridLayout(5,5,2,2));
 panelEmployeeType.add(labelEmployeeType);
@@ -102,11 +145,11 @@ ButtonGroup groupEmployeeType = new ButtonGroup();
         groupEmployeeType.add(jRadioButtonSalary);
 //End
 
-        panelEmployeeType.add(jRadioButtonBasedSalaried);
-        panelEmployeeType.add(jRadioButtonCommission);
-        panelEmployeeType.add(jRadioButtonHourly);
-        panelEmployeeType.add(jRadioButtonSalary);
-        panelEmployeeType.add(jButtonNext);
+//        panelEmployeeType.add(jRadioButtonBasedSalaried);
+//        panelEmployeeType.add(jRadioButtonCommission);
+//        panelEmployeeType.add(jRadioButtonHourly);
+//        panelEmployeeType.add(jRadioButtonSalary);
+//        panelEmployeeType.add(jButtonNext);
         add(panelEmployeeType);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,7 +159,7 @@ ButtonGroup groupEmployeeType = new ButtonGroup();
 
         setTitle("Дикобраз");
         setVisible(true);
-        pack();
+//        pack();
         setLocationRelativeTo(null);
     }
 }
