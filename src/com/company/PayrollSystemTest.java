@@ -121,7 +121,17 @@ GroupLayout layout = new GroupLayout(getContentPane());
         panelRegistration.add(jTextFieldDateOfBirth);
         panelRegistration.add(jTextFieldSocialSecurityNumber);
         panelRegistration.add(jTextFieldWeeklySalary);
-
+        panelRegistration.add(jRadioButtonSalary);
+        panelRegistration.add(jRadioButtonHourly);
+        panelRegistration.add(jRadioButtonCommission);
+        panelRegistration.add(jRadioButtonSalary);
+        panelRegistration.add(jRadioButtonBasedSalaried);
+        ButtonGroup groupEmployeeType = new ButtonGroup();
+        groupEmployeeType.add(jRadioButtonBasedSalaried);
+        groupEmployeeType.add(jRadioButtonCommission);
+        groupEmployeeType.add(jRadioButtonHourly);
+        groupEmployeeType.add(jRadioButtonSalary);
+//End
 
         panelRegistration.add(jButtonCancelRegistration);
         panelRegistration.add(jButtonNextRegistration);
@@ -129,29 +139,6 @@ GroupLayout layout = new GroupLayout(getContentPane());
 
         add(panelRegistration);
         setSize(400 , 230);
-
-    }
-
-    public void initPanelEmployeeType(){
-panelEmployeeType = new JPanel();
-panelEmployeeType.setLayout(new GridLayout(5,5,2,2));
-panelEmployeeType.add(labelEmployeeType);
-
-//ButtonGroup
-ButtonGroup groupEmployeeType = new ButtonGroup();
-        groupEmployeeType.add(jRadioButtonBasedSalaried);
-        groupEmployeeType.add(jRadioButtonCommission);
-        groupEmployeeType.add(jRadioButtonHourly);
-        groupEmployeeType.add(jRadioButtonSalary);
-//End
-
-//        panelEmployeeType.add(jRadioButtonBasedSalaried);
-//        panelEmployeeType.add(jRadioButtonCommission);
-//        panelEmployeeType.add(jRadioButtonHourly);
-//        panelEmployeeType.add(jRadioButtonSalary);
-//        panelEmployeeType.add(jButtonNext);
-        add(panelEmployeeType);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
     }
     private void initFrame(){
