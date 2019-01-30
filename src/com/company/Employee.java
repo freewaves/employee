@@ -1,7 +1,7 @@
 package com.company;
 import java.lang.String;
 
-public abstract class Employee extends Object {
+public abstract class Employee  {
     //instance vars
     protected String name;
     protected String lastName;

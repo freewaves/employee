@@ -17,118 +17,18 @@ payroll amount if the current month is the one in which the Employee ’s birthd
 */
 package com.company;
 import javax.swing.*;
-import java.awt.*;
 import java.util.Scanner;
 import java.lang.String;
 import java.util.ArrayList;
 
-import static javax.swing.GroupLayout.Alignment.*;
-
-public class PayrollSystemTest extends JFrame {
-    private JLabel jLabelName = new JLabel("Name :");
-    private JLabel jLabelLastName = new JLabel("Last Name :");
-    private JLabel jLabelSSN = new JLabel("SSN :");
-    private JLabel jLabelDateOfBirth = new JLabel("Date Of Birth :");
-    private JLabel jLabelGrossSales = new JLabel("Gross Sales :");
-    private JButton jButtonOk = new JButton("Ok");
-    private JButton jButtonCancel = new JButton("Cancel");
-    private JRadioButton jRadioButtonSalary = new JRadioButton("Salary Employee");
-    private JRadioButton jRadioButtonCommission = new JRadioButton("Commission Employee");
-    private JRadioButton jRadioButtonBasedSalaried = new JRadioButton("Based & Salaied Employee");
-    private JRadioButton jRadioButtonHourly = new JRadioButton("Hourly Employee");
-    private JTextField jTextFieldName = new JTextField(15);
-    private JTextField jTextFieldLastName = new JTextField(15);
-    private JTextField jTextFieldSocialSecurityNumber = new JTextField(15);
-    private JTextField jTextFieldDateOfBirth = new JTextField(15);
-    private JTextField jTextFieldWeeklySalary = new JTextField(15);
-
-    public PayrollSystemTest() {
-        jRadioButtonBasedSalaried.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jRadioButtonSalary.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jRadioButtonHourly.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jRadioButtonCommission.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-
-        GroupLayout layout = new GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setAutoCreateGaps(true);
-        layout.setAutoCreateContainerGaps(true);
-
-        // layout start
-        layout.setHorizontalGroup(layout.createSequentialGroup()
-                .addComponent(jLabelName)
-                .addComponent(jLabelLastName)
-                .addComponent(jLabelSSN)
-                .addComponent(jLabelDateOfBirth)
-                .addComponent(jLabelGrossSales)
-                .addGroup(layout.createParallelGroup(LEADING)
-                        .addComponent(jTextFieldName)
-                        .addComponent(jTextFieldLastName)
-                        .addComponent(jTextFieldSocialSecurityNumber)
-                        .addComponent(jTextFieldDateOfBirth)
-                        .addComponent(jTextFieldWeeklySalary)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(LEADING)
-                                        .addComponent(jRadioButtonBasedSalaried)
-                                        .addComponent(jRadioButtonCommission))
-                                .addGroup(layout.createParallelGroup(LEADING)
-                                        .addComponent(jRadioButtonHourly)
-                                        .addComponent(jRadioButtonSalary))))
-                .addGroup(layout.createParallelGroup(LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonOk))
-                        .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonCancel)))
-
-        );
 
 
-        layout.setVerticalGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup()
-                        .addComponent(jLabelName)
-                        .addComponent(jTextFieldName))
-                .addGroup(layout.createParallelGroup()
-                        .addComponent(jLabelLastName)
-                        .addComponent(jTextFieldLastName))
-                .addGroup(layout.createParallelGroup()
-                        .addComponent(jLabelSSN)
-                        .addComponent(jTextFieldSocialSecurityNumber))
-                .addGroup(layout.createParallelGroup()
-                        .addComponent(jLabelDateOfBirth)
-                        .addComponent(jTextFieldDateOfBirth))
-                .addGroup(layout.createParallelGroup()
-                        .addComponent(jLabelGrossSales)
-                        .addComponent(jTextFieldWeeklySalary))
+//
+//
 
-                .addGroup(layout.createParallelGroup(LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(BASELINE)
-                                        .addComponent(jRadioButtonBasedSalaried)
-                                        .addComponent(jRadioButtonHourly))
-                                .addGroup(layout.createParallelGroup(BASELINE)
-                                        .addComponent(jRadioButtonCommission)
-                                        .addComponent(jRadioButtonSalary)))
+public class PayrollSystemTest {
 
-                        )
-                .addGroup(layout.createParallelGroup(LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createSequentialGroup()
-                .addComponent(jButtonOk))
-                        .addGroup(layout.createSequentialGroup()
-                .addComponent(jButtonCancel))))
-        );
-        //layout END
 
-        //Added JButtonGroup RadioButton
-        ButtonGroup buttonGroupRadio = new ButtonGroup();
-        buttonGroupRadio.add(jRadioButtonBasedSalaried);
-        buttonGroupRadio.add(jRadioButtonCommission);
-        buttonGroupRadio.add(jRadioButtonHourly);
-        buttonGroupRadio.add(jRadioButtonSalary);
-        //END
-        pack();
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-    }
 
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -138,11 +38,13 @@ public class PayrollSystemTest extends JFrame {
                     UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
                 }
                 catch (Exception ex){
-                    ex.printStackTrace();
+                     ex.printStackTrace();
                 }
-                new PayrollSystemTest().setVisible(true);
+                new EmployeeFrame().setVisible(true);
             }
         });
+
+
 
         //salaried commission employees are rewarded 10%
         Date today =new Date(1,18,2019);
@@ -192,16 +94,6 @@ public class PayrollSystemTest extends JFrame {
         comEmployee.setCommissionRate(comRate);
         */
     }
-    public void initPanelRegistration(){
 
 
-    }
-    private void initFrame(){
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        setTitle("Дикобраз");
-//        setVisible(true);
-//        pack();
-        setLocationRelativeTo(null);
-    }
 }
