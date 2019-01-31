@@ -31,18 +31,8 @@ public class PayrollSystemTest {
 
 
     public static void main(String[] args) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
-                }
-                catch (Exception ex){
-                     ex.printStackTrace();
-                }
+
                 new EmployeeFrame().setVisible(true);
-            }
-        });
 
 
 
