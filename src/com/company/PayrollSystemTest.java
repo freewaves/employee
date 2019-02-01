@@ -32,7 +32,7 @@ public class PayrollSystemTest {
 
     public static void main(String[] args) {
 
-                new EmployeeFrame().setVisible(true);
+                new EmployeeFrame();
 
 
 
