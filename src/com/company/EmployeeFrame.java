@@ -15,9 +15,13 @@ public class EmployeeFrame {
     private JLabel jLabelSSN = new JLabel("SSN :");
     private JLabel jLabelDateOfBirth = new JLabel("Date Of Birth :");
     private JLabel jLabelGrossSales = new JLabel("Gross Sales :");
+    private JLabel jLabelWeeklySalary = new JLabel("Weekly Salary");
     //buttons init
     private JButton jButtonOk = new JButton("Ok");
     private JButton jButtonCancel = new JButton("Cancel");
+    private JButton jButtonCencelSalary = new JButton("Cancel");
+    private JButton jButtonOkSalary = new JButton("Ok");
+    private JButton jButtonBackSalary = new JButton("Back");
     //radio buttons init
     private JRadioButton jRadioButtonSalary = new JRadioButton("Salary Employee");
     private JRadioButton jRadioButtonCommission = new JRadioButton("Commission Employee");
@@ -29,17 +33,21 @@ public class EmployeeFrame {
     private JTextField jTextFieldSocialSecurityNumber = new JTextField(15);
     private JTextField jTextFieldDateOfBirth = new JTextField(15);
     private JTextField jTextFieldGrossSales = new JTextField(15);
+    private JTextField jTextFieldWeeklySalary = new JTextField(15);
     private JPanel registrationPanel = new JPanel();
     private JFrame registrationFrame = new JFrame();
+    private JPanel salariedEmployeePanel = new JPanel();
     //constructor
     public EmployeeFrame (){
-    initRegistrationFrame(); 
-    //registrationFrame
-        registrationFrame.add(registrationPanel);
         registrationFrame.setVisible(true);
-        registrationFrame.pack();
+
         registrationFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         registrationFrame.setLocationRelativeTo(null);
+    initRegistrationFrame();
+    salariedEmployeeFrame();
+    registrationFrame.pack();
+    //registrationFrame
+
         //END registrationFrame
 
 //handler registration
@@ -60,76 +68,76 @@ private void initRegistrationFrame(){
     jRadioButtonHourly.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
     jRadioButtonCommission.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
-    GroupLayout layout = new GroupLayout(registrationPanel);
-    registrationPanel.setLayout(layout);
+    GroupLayout layoutRegistration = new GroupLayout(registrationPanel);
+    registrationPanel.setLayout(layoutRegistration);
 
-    layout.setAutoCreateGaps(true);
-    layout.setAutoCreateContainerGaps(true);
+    layoutRegistration.setAutoCreateGaps(true);
+    layoutRegistration.setAutoCreateContainerGaps(true);
 
-    // layout start
-    layout.setHorizontalGroup(layout.createSequentialGroup()
-            .addGroup(layout.createParallelGroup(LEADING)
+    // layoutRegistration start
+    layoutRegistration.setHorizontalGroup(layoutRegistration.createSequentialGroup()
+            .addGroup(layoutRegistration.createParallelGroup(LEADING)
                     .addComponent(jLabelName)
                     .addComponent(jLabelLastName)
                     .addComponent(jLabelSSN)
                     .addComponent(jLabelDateOfBirth)
                     .addComponent(jLabelGrossSales))
-            .addGroup(layout.createParallelGroup(LEADING)
+            .addGroup(layoutRegistration.createParallelGroup(LEADING)
                     .addComponent(jTextFieldName)
                     .addComponent(jTextFieldLastName)
                     .addComponent(jTextFieldSocialSecurityNumber)
                     .addComponent(jTextFieldDateOfBirth)
                     .addComponent(jTextFieldGrossSales)
-                    .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(LEADING)
+                    .addGroup(layoutRegistration.createSequentialGroup()
+                            .addGroup(layoutRegistration.createParallelGroup(LEADING)
                                     .addComponent(jRadioButtonBasedSalaried)
                                     .addComponent(jRadioButtonCommission))
-                            .addGroup(layout.createParallelGroup(LEADING)
+                            .addGroup(layoutRegistration.createParallelGroup(LEADING)
                                     .addComponent(jRadioButtonHourly)
                                     .addComponent(jRadioButtonSalary)))
 
-                    .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(LEADING)
+                    .addGroup(layoutRegistration.createSequentialGroup()
+                            .addGroup(layoutRegistration.createParallelGroup(LEADING)
                                     .addComponent(jButtonOk))
-                            .addGroup(layout.createParallelGroup(LEADING)
+                            .addGroup(layoutRegistration.createParallelGroup(LEADING)
                                     .addComponent(jButtonCancel)))
             )
     );
-    layout.setVerticalGroup(layout.createSequentialGroup()
-            .addGroup(layout.createParallelGroup(BASELINE)
+    layoutRegistration.setVerticalGroup(layoutRegistration.createSequentialGroup()
+            .addGroup(layoutRegistration.createParallelGroup(BASELINE)
                     .addComponent(jLabelName)
                     .addComponent(jTextFieldName))
-            .addGroup(layout.createParallelGroup()
+            .addGroup(layoutRegistration.createParallelGroup()
                     .addComponent(jLabelLastName)
                     .addComponent(jTextFieldLastName))
-            .addGroup(layout.createParallelGroup()
+            .addGroup(layoutRegistration.createParallelGroup()
                     .addComponent(jLabelSSN)
                     .addComponent(jTextFieldSocialSecurityNumber))
-            .addGroup(layout.createParallelGroup()
+            .addGroup(layoutRegistration.createParallelGroup()
                     .addComponent(jLabelDateOfBirth)
                     .addComponent(jTextFieldDateOfBirth))
-            .addGroup(layout.createParallelGroup()
+            .addGroup(layoutRegistration.createParallelGroup()
                     .addComponent(jLabelGrossSales)
                     .addComponent(jTextFieldGrossSales))
 
-            .addGroup(layout.createParallelGroup(LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(BASELINE)
+            .addGroup(layoutRegistration.createParallelGroup(LEADING)
+                    .addGroup(layoutRegistration.createSequentialGroup()
+                            .addGroup(layoutRegistration.createParallelGroup(BASELINE)
                                     .addComponent(jRadioButtonBasedSalaried)
                                     .addComponent(jRadioButtonHourly))
-                            .addGroup(layout.createParallelGroup(BASELINE)
+                            .addGroup(layoutRegistration.createParallelGroup(BASELINE)
                                     .addComponent(jRadioButtonCommission)
                                     .addComponent(jRadioButtonSalary))))
 
-            .addGroup(layout.createParallelGroup(LEADING)
-                    .addGroup(layout.createParallelGroup()
-                            .addGroup(layout.createParallelGroup(BASELINE))
+            .addGroup(layoutRegistration.createParallelGroup(LEADING)
+                    .addGroup(layoutRegistration.createParallelGroup()
+                            .addGroup(layoutRegistration.createParallelGroup(BASELINE))
                             .addComponent(jButtonOk))
-                    .addGroup(layout.createParallelGroup()
+                    .addGroup(layoutRegistration.createParallelGroup()
                             .addComponent(jButtonCancel)))
 
     );
-    //layout END
+    //layoutRegistration END
 
     //Added JButtonGroup RadioButton
     ButtonGroup buttonGroupRadio = new ButtonGroup();
@@ -138,6 +146,37 @@ private void initRegistrationFrame(){
     buttonGroupRadio.add(jRadioButtonHourly);
     buttonGroupRadio.add(jRadioButtonSalary);
     //END
+    registrationFrame.add(registrationPanel);
+}
+private void salariedEmployeeFrame(){
+        registrationFrame.remove(registrationPanel);
+        registrationFrame.add(salariedEmployeePanel);
+        GroupLayout salariedLayout = new GroupLayout(salariedEmployeePanel);
+        registrationPanel.setLayout(salariedLayout);
+
+        salariedLayout.setAutoCreateGaps(true);
+        salariedLayout.setAutoCreateContainerGaps(true);
+
+        salariedLayout.setHorizontalGroup(salariedLayout.createSequentialGroup()
+        .addGroup(salariedLayout.createParallelGroup(LEADING)
+            .addComponent(jLabelWeeklySalary))
+                .addGroup(salariedLayout.createParallelGroup(LEADING)
+                .addComponent(jTextFieldWeeklySalary))
+        );
+
+
+        salariedLayout.setVerticalGroup(salariedLayout.createSequentialGroup()
+        .addGroup(salariedLayout.createParallelGroup(BASELINE)
+        .addComponent(jLabelWeeklySalary)
+        .addComponent(jTextFieldWeeklySalary)
+                .addGroup(salariedLayout.createSequentialGroup()
+                        .addGroup(salariedLayout.createParallelGroup(LEADING)
+                                .addComponent(jButtonCencelSalary)
+                                .addComponent(jButtonCencelSalary)
+                                .addComponent(jButtonOkSalary)
+                        )))
+        );
+
 
 }
     // private inner class for event handling
