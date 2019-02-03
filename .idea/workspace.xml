@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4038b545-1a5f-4d62-8ba6-3876072fe863" name="Default" comment="Added JPanel and changed JFrame">
+    <list default="true" id="4038b545-1a5f-4d62-8ba6-3876072fe863" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/polymorphic/com/company/EmployeeFrame$TextFieldHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/polymorphic/com/company/EmployeeFrame$TextFieldHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/polymorphic/com/company/EmployeeFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/polymorphic/com/company/EmployeeFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/EmployeeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/EmployeeFrame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -18,14 +20,14 @@
       <file leaf-file-name="EmployeeFrame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/EmployeeFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="167" column="24" lean-forward="true" selection-start-line="167" selection-start-column="24" selection-end-line="167" selection-end-column="24" />
+            <state relative-caret-position="395">
+              <caret line="210" column="40" lean-forward="true" selection-start-line="210" selection-start-column="21" selection-end-line="210" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="salaried employee frame.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/salaried employee frame.png">
+      <file leaf-file-name="base commission  employee frame.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/base commission  employee frame.png">
           <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
@@ -78,6 +80,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -100,8 +104,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -185,7 +187,8 @@
       <workItem from="1548921666488" duration="634000" />
       <workItem from="1548919542595" duration="782000" />
       <workItem from="1548988687406" duration="6488000" />
-      <workItem from="1549090052430" duration="6835000" />
+      <workItem from="1549090052430" duration="7018000" />
+      <workItem from="1549147141640" duration="7603000" />
     </task>
     <task id="LOCAL-00001" summary="Added JradioButton">
       <created>1548393982208</created>
@@ -229,11 +232,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548996709967</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added SalaryPanel">
+      <created>1549099330330</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1549099330330</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113670000" />
+    <option name="totallyTimeSpent" value="121456000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -241,19 +251,19 @@
     <layout>
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="bottom" id="TODO" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.48940998" weight="0.32662538" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.48940998" weight="0.32539684" />
       <window_info anchor="right" id="Palette&#9;" order="1" />
       <window_info id="Image Layers" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.13313162" side_tool="true" weight="0.085667215" />
+      <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.13313162" side_tool="true" weight="0.12698413" />
       <window_info anchor="right" id="Maven Projects" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" weight="0.08237232" />
-      <window_info active="true" anchor="bottom" id="Run" order="5" sideWeight="0.8668684" visible="true" weight="0.15650742" />
+      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.8668684" weight="0.15555556" />
       <window_info anchor="bottom" id="Terminal" order="2" />
       <window_info id="Capture Tool" order="0" />
       <window_info id="Designer" order="1" />
-      <window_info content_ui="combo" id="Project" order="4" visible="true" weight="0.20045386" />
+      <window_info active="true" content_ui="combo" id="Project" order="4" visible="true" weight="0.19692533" />
       <window_info anchor="right" id="Database" order="2" />
       <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
@@ -282,7 +292,8 @@
     <MESSAGE value="Changed window" />
     <MESSAGE value="deleted try/catch" />
     <MESSAGE value="Added JPanel and changed JFrame" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added JPanel and changed JFrame" />
+    <MESSAGE value="Added SalaryPanel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added SalaryPanel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -290,20 +301,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/company/SalariedEmployee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/HourlyEmployee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/CommissionEmployee.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -624,16 +621,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base commission  employee frame.png">
+    <entry file="file://$PROJECT_DIR$/salaried employee frame.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/salaried employee frame.png">
+    <entry file="file://$PROJECT_DIR$/commission employee frame.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hourly employee frame.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base commission  employee frame.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/EmployeeFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="167" column="24" lean-forward="true" selection-start-line="167" selection-start-column="24" selection-end-line="167" selection-end-column="24" />
+        <state relative-caret-position="395">
+          <caret line="210" column="40" lean-forward="true" selection-start-line="210" selection-start-column="21" selection-end-line="210" selection-end-column="40" />
         </state>
       </provider>
     </entry>

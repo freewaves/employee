@@ -16,12 +16,19 @@ public class EmployeeFrame {
     private JLabel jLabelDateOfBirth = new JLabel("Date Of Birth :");
     private JLabel jLabelGrossSales = new JLabel("Gross Sales :");
     private JLabel jLabelWeeklySalary = new JLabel("Weekly Salary");
+    private JLabel jLabelWageHourly = new JLabel("Wage");
+    private JLabel jLabelOvertimeRateHourly = new JLabel("Overtime Rate");
+    private JLabel jLabelHoursWorkedHourly = new JLabel("Hourly Worked");
+    private JLabel jLabel40Hours = new JLabel("By default , base hours ber week are 40 hours");
     //buttons init
     private JButton jButtonOk = new JButton("Ok");
     private JButton jButtonCancel = new JButton("Cancel");
-    private JButton jButtonCencelSalary = new JButton("Cancel");
-    private JButton jButtonOkSalary = new JButton("Ok");
+    private JButton jButtonCancelSalary = new JButton("Cancel");
+    private JButton jButtonFinishSalary = new JButton("Finish");
     private JButton jButtonBackSalary = new JButton("Back");
+    private JButton jButtonCancelHourly = new JButton("Cancel");
+    private JButton jButtonFinishHourly = new JButton("Finish");
+    private JButton jButtonBackHourly = new JButton("Back");
     //radio buttons init
     private JRadioButton jRadioButtonSalary = new JRadioButton("Salary Employee");
     private JRadioButton jRadioButtonCommission = new JRadioButton("Commission Employee");
@@ -34,18 +41,26 @@ public class EmployeeFrame {
     private JTextField jTextFieldDateOfBirth = new JTextField(15);
     private JTextField jTextFieldGrossSales = new JTextField(15);
     private JTextField jTextFieldWeeklySalary = new JTextField(15);
+    private JTextField jTextFieldWageHourly = new JTextField(15);
+    private JTextField jTextFieldOvertimeRateHourly = new JTextField(15);
+    private JTextField jTextFieldHoursWorkedHourly = new JTextField(15);
+
     private JPanel registrationPanel = new JPanel();
-    private JFrame registrationFrame = new JFrame();
     private JPanel salariedEmployeePanel = new JPanel();
+    private JPanel hourlyEmployeePanel = new JPanel();
+    private JFrame registrationFrame = new JFrame();
+
     //constructor
     public EmployeeFrame (){
-        registrationFrame.setVisible(true);
 
+//    initRegistrationFrame();
+//    initSalariedEmployeeFrame();
+    initHourlyEmployeePanel();
+        registrationFrame.setVisible(true);
         registrationFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         registrationFrame.setLocationRelativeTo(null);
-    initRegistrationFrame();
-    salariedEmployeeFrame();
-    registrationFrame.pack();
+        registrationFrame.setResizable(false);
+        registrationFrame.pack();
     //registrationFrame
 
         //END registrationFrame
@@ -148,37 +163,112 @@ private void initRegistrationFrame(){
     //END
     registrationFrame.add(registrationPanel);
 }
-private void salariedEmployeeFrame(){
-        registrationFrame.remove(registrationPanel);
-        registrationFrame.add(salariedEmployeePanel);
-        GroupLayout salariedLayout = new GroupLayout(salariedEmployeePanel);
-        registrationPanel.setLayout(salariedLayout);
+private void initSalariedEmployeeFrame(){
 
-        salariedLayout.setAutoCreateGaps(true);
-        salariedLayout.setAutoCreateContainerGaps(true);
+    GroupLayout salariedLayout = new GroupLayout(salariedEmployeePanel);
+    salariedEmployeePanel.setLayout(salariedLayout);
 
-        salariedLayout.setHorizontalGroup(salariedLayout.createSequentialGroup()
-        .addGroup(salariedLayout.createParallelGroup(LEADING)
-            .addComponent(jLabelWeeklySalary))
-                .addGroup(salariedLayout.createParallelGroup(LEADING)
-                .addComponent(jTextFieldWeeklySalary))
-        );
+    salariedLayout.setAutoCreateGaps(true);
+    salariedLayout.setAutoCreateContainerGaps(true);
+
+    // salariedLayout start
+    salariedLayout.setHorizontalGroup(salariedLayout.createSequentialGroup()
+            .addGroup(salariedLayout.createParallelGroup(LEADING)
+                    .addComponent(jLabelWeeklySalary))
+            .addGroup(salariedLayout.createParallelGroup(LEADING)
+                    .addComponent(jTextFieldWeeklySalary)
+
+                    .addGroup(salariedLayout.createSequentialGroup()
+                            .addGroup(salariedLayout.createParallelGroup(LEADING)
+                                    .addComponent(jButtonFinishSalary))
+                            .addGroup(salariedLayout.createParallelGroup(LEADING)
+                                    .addComponent(jButtonCancelSalary))
+                            .addGroup(salariedLayout.createParallelGroup(LEADING)
+                                    .addComponent(jButtonBackSalary)))
+            )
+    );
+    salariedLayout.setVerticalGroup(salariedLayout.createSequentialGroup()
+            .addGroup(salariedLayout.createParallelGroup(BASELINE)
+                    .addComponent(jLabelWeeklySalary)
+                    .addComponent(jTextFieldWeeklySalary))
 
 
-        salariedLayout.setVerticalGroup(salariedLayout.createSequentialGroup()
-        .addGroup(salariedLayout.createParallelGroup(BASELINE)
-        .addComponent(jLabelWeeklySalary)
-        .addComponent(jTextFieldWeeklySalary)
-                .addGroup(salariedLayout.createSequentialGroup()
-                        .addGroup(salariedLayout.createParallelGroup(LEADING)
-                                .addComponent(jButtonCencelSalary)
-                                .addComponent(jButtonCencelSalary)
-                                .addComponent(jButtonOkSalary)
-                        )))
-        );
+            .addGroup(salariedLayout.createParallelGroup(LEADING)
+                    .addGroup(salariedLayout.createParallelGroup()
+                            .addGroup(salariedLayout.createParallelGroup(BASELINE))
+                            .addComponent(jButtonFinishSalary))
+                    .addGroup(salariedLayout.createParallelGroup()
+                            .addComponent(jButtonCancelSalary))
+                    .addGroup(salariedLayout.createParallelGroup()
+                            .addComponent(jButtonBackSalary)))
 
+    );
+    //salariedLayout END
 
+    registrationFrame.add(salariedEmployeePanel);
 }
+
+    private void initHourlyEmployeePanel(){
+
+        GroupLayout hourlyLayout = new GroupLayout(hourlyEmployeePanel);
+        hourlyEmployeePanel.setLayout(hourlyLayout);
+
+        hourlyLayout.setAutoCreateGaps(true);
+        hourlyLayout.setAutoCreateContainerGaps(true);
+
+        hourlyLayout.setHorizontalGroup(hourlyLayout.createSequentialGroup()
+                .addGroup(hourlyLayout.createParallelGroup(LEADING)
+                        .addComponent(jLabelWageHourly)
+                        .addComponent(jLabelOvertimeRateHourly)
+                        .addComponent(jLabelHoursWorkedHourly))
+                .addGroup(hourlyLayout.createParallelGroup(LEADING)
+                        .addComponent(jTextFieldWageHourly)
+                        .addComponent(jTextFieldOvertimeRateHourly)
+                        .addComponent(jTextFieldHoursWorkedHourly)
+                        .addGroup(hourlyLayout.createSequentialGroup()
+                                .addGroup(hourlyLayout.createParallelGroup(LEADING)
+                                        .addComponent(jLabel40Hours)))
+
+                        .addGroup(hourlyLayout.createSequentialGroup()
+                                .addGroup(hourlyLayout.createParallelGroup(LEADING)
+                                        .addComponent(jButtonFinishHourly))
+                                .addGroup(hourlyLayout.createParallelGroup(LEADING)
+                                        .addComponent(jButtonBackHourly))
+                                .addGroup(hourlyLayout.createParallelGroup(LEADING)
+                                        .addComponent(jButtonCancelHourly)))
+                )
+        );
+        hourlyLayout.setVerticalGroup(hourlyLayout.createSequentialGroup()
+                .addGroup(hourlyLayout.createParallelGroup(BASELINE)
+                        .addComponent(jLabelWageHourly)
+                        .addComponent(jTextFieldWageHourly))
+                .addGroup(hourlyLayout.createParallelGroup()
+                        .addComponent(jLabelOvertimeRateHourly)
+                        .addComponent(jTextFieldOvertimeRateHourly))
+                .addGroup(hourlyLayout.createParallelGroup()
+                        .addComponent(jLabelHoursWorkedHourly)
+                        .addComponent(jTextFieldHoursWorkedHourly))
+
+                .addGroup(hourlyLayout.createParallelGroup(LEADING)
+                        .addGroup(hourlyLayout.createSequentialGroup()
+                                .addGroup(hourlyLayout.createParallelGroup(BASELINE)
+                                        .addComponent(jLabel40Hours))))
+
+                .addGroup(hourlyLayout.createParallelGroup(LEADING)
+                        .addGroup(hourlyLayout.createParallelGroup()
+                                .addGroup(hourlyLayout.createParallelGroup(BASELINE))
+                                .addComponent(jButtonFinishHourly))
+                        .addGroup(hourlyLayout.createParallelGroup()
+                                .addComponent(jButtonCancelHourly))
+                        .addGroup(hourlyLayout.createParallelGroup()
+                                .addComponent(jButtonBackHourly)))
+
+        );
+        //hourlyLayout END
+
+        registrationFrame.add(hourlyEmployeePanel);
+    }
+
     // private inner class for event handling
     private class TextFieldHandler implements ActionListener {
         // process text field events
