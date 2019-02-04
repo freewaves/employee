@@ -20,15 +20,12 @@ public class EmployeeFrame {
     private JLabel jLabelOvertimeRateHourly = new JLabel("Overtime Rate");
     private JLabel jLabelHoursWorkedHourly = new JLabel("Hourly Worked");
     private JLabel jLabel40Hours = new JLabel("By default , base hours ber week are 40 hours");
+    private JLabel jLabelCommission = new JLabel("Commission Rate");
     //buttons init
     private JButton jButtonOk = new JButton("Ok");
     private JButton jButtonCancel = new JButton("Cancel");
-    private JButton jButtonCancelSalary = new JButton("Cancel");
-    private JButton jButtonFinishSalary = new JButton("Finish");
-    private JButton jButtonBackSalary = new JButton("Back");
-    private JButton jButtonCancelHourly = new JButton("Cancel");
-    private JButton jButtonFinishHourly = new JButton("Finish");
-    private JButton jButtonBackHourly = new JButton("Back");
+    private JButton jButtonFinish = new JButton("Finish");
+    private JButton jButtonBack = new JButton("Back");
     //radio buttons init
     private JRadioButton jRadioButtonSalary = new JRadioButton("Salary Employee");
     private JRadioButton jRadioButtonCommission = new JRadioButton("Commission Employee");
@@ -44,8 +41,10 @@ public class EmployeeFrame {
     private JTextField jTextFieldWageHourly = new JTextField(15);
     private JTextField jTextFieldOvertimeRateHourly = new JTextField(15);
     private JTextField jTextFieldHoursWorkedHourly = new JTextField(15);
+    private JTextField jTextFieldCommissionRate = new JTextField(15);
 
     private JPanel registrationPanel = new JPanel();
+    private JPanel commissionEmployeePanel = new JPanel();
     private JPanel salariedEmployeePanel = new JPanel();
     private JPanel hourlyEmployeePanel = new JPanel();
     private JFrame registrationFrame = new JFrame();
@@ -53,9 +52,10 @@ public class EmployeeFrame {
     //constructor
     public EmployeeFrame (){
 
-//    initRegistrationFrame();
+    initRegistrationFrame();
 //    initSalariedEmployeeFrame();
-    initHourlyEmployeePanel();
+//    initHourlyEmployeePanel();
+//    initCommissionEmployeePanel();
         registrationFrame.setVisible(true);
         registrationFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         registrationFrame.setLocationRelativeTo(null);
@@ -74,7 +74,21 @@ public class EmployeeFrame {
     jTextFieldGrossSales.addActionListener(handler);
     }
     //end EmployeeFrame constructor
+    private void  buttonOk(ActionEvent e){
+        if (jRadioButtonBasedSalaried.isSelected()){
+            initSalariedEmployeeFrame();
 
+        }
+        if (jRadioButtonCommission.isSelected()){
+            initCommissionEmployeePanel();
+        }
+        if (jRadioButtonHourly.isSelected()){
+            initHourlyEmployeePanel();
+        }
+        if (jRadioButtonSalary.isSelected()){
+            initSalariedEmployeeFrame();
+        }
+    }
 
 private void initRegistrationFrame(){
 
@@ -88,6 +102,7 @@ private void initRegistrationFrame(){
 
     layoutRegistration.setAutoCreateGaps(true);
     layoutRegistration.setAutoCreateContainerGaps(true);
+    jButtonOk.addActionListener(this::buttonOk);
 
     // layoutRegistration start
     layoutRegistration.setHorizontalGroup(layoutRegistration.createSequentialGroup()
@@ -163,6 +178,7 @@ private void initRegistrationFrame(){
     //END
     registrationFrame.add(registrationPanel);
 }
+
 private void initSalariedEmployeeFrame(){
 
     GroupLayout salariedLayout = new GroupLayout(salariedEmployeePanel);
@@ -180,11 +196,11 @@ private void initSalariedEmployeeFrame(){
 
                     .addGroup(salariedLayout.createSequentialGroup()
                             .addGroup(salariedLayout.createParallelGroup(LEADING)
-                                    .addComponent(jButtonFinishSalary))
+                                    .addComponent(jButtonFinish))
                             .addGroup(salariedLayout.createParallelGroup(LEADING)
-                                    .addComponent(jButtonCancelSalary))
+                                    .addComponent(jButtonCancel))
                             .addGroup(salariedLayout.createParallelGroup(LEADING)
-                                    .addComponent(jButtonBackSalary)))
+                                    .addComponent(jButtonBack)))
             )
     );
     salariedLayout.setVerticalGroup(salariedLayout.createSequentialGroup()
@@ -196,16 +212,17 @@ private void initSalariedEmployeeFrame(){
             .addGroup(salariedLayout.createParallelGroup(LEADING)
                     .addGroup(salariedLayout.createParallelGroup()
                             .addGroup(salariedLayout.createParallelGroup(BASELINE))
-                            .addComponent(jButtonFinishSalary))
+                            .addComponent(jButtonFinish))
                     .addGroup(salariedLayout.createParallelGroup()
-                            .addComponent(jButtonCancelSalary))
+                            .addComponent(jButtonCancel))
                     .addGroup(salariedLayout.createParallelGroup()
-                            .addComponent(jButtonBackSalary)))
+                            .addComponent(jButtonBack)))
 
     );
     //salariedLayout END
 
     registrationFrame.add(salariedEmployeePanel);
+    registrationFrame.remove(registrationPanel);
 }
 
     private void initHourlyEmployeePanel(){
@@ -231,11 +248,11 @@ private void initSalariedEmployeeFrame(){
 
                         .addGroup(hourlyLayout.createSequentialGroup()
                                 .addGroup(hourlyLayout.createParallelGroup(LEADING)
-                                        .addComponent(jButtonFinishHourly))
+                                        .addComponent(jButtonFinish))
                                 .addGroup(hourlyLayout.createParallelGroup(LEADING)
-                                        .addComponent(jButtonBackHourly))
+                                        .addComponent(jButtonBack))
                                 .addGroup(hourlyLayout.createParallelGroup(LEADING)
-                                        .addComponent(jButtonCancelHourly)))
+                                        .addComponent(jButtonCancel)))
                 )
         );
         hourlyLayout.setVerticalGroup(hourlyLayout.createSequentialGroup()
@@ -257,17 +274,62 @@ private void initSalariedEmployeeFrame(){
                 .addGroup(hourlyLayout.createParallelGroup(LEADING)
                         .addGroup(hourlyLayout.createParallelGroup()
                                 .addGroup(hourlyLayout.createParallelGroup(BASELINE))
-                                .addComponent(jButtonFinishHourly))
+                                .addComponent(jButtonFinish))
                         .addGroup(hourlyLayout.createParallelGroup()
-                                .addComponent(jButtonCancelHourly))
+                                .addComponent(jButtonCancel))
                         .addGroup(hourlyLayout.createParallelGroup()
-                                .addComponent(jButtonBackHourly)))
+                                .addComponent(jButtonBack)))
 
         );
         //hourlyLayout END
 
         registrationFrame.add(hourlyEmployeePanel);
     }
+    private void initCommissionEmployeePanel(){
+
+        GroupLayout commissionLayout = new GroupLayout(commissionEmployeePanel);
+        commissionEmployeePanel.setLayout(commissionLayout);
+
+        commissionLayout.setAutoCreateGaps(true);
+        commissionLayout.setAutoCreateContainerGaps(true);
+
+        // commissionLayout start
+        commissionLayout.setHorizontalGroup(commissionLayout.createSequentialGroup()
+                .addGroup(commissionLayout.createParallelGroup(LEADING)
+                        .addComponent(jLabelCommission))
+                .addGroup(commissionLayout.createParallelGroup(LEADING)
+                        .addComponent(jTextFieldCommissionRate)
+
+                        .addGroup(commissionLayout.createSequentialGroup()
+                                .addGroup(commissionLayout.createParallelGroup(LEADING)
+                                        .addComponent(jButtonFinish))
+                                .addGroup(commissionLayout.createParallelGroup(LEADING)
+                                        .addComponent(jButtonCancel))
+                                .addGroup(commissionLayout.createParallelGroup(LEADING)
+                                        .addComponent(jButtonBack)))
+                )
+        );
+        commissionLayout.setVerticalGroup(commissionLayout.createSequentialGroup()
+                .addGroup(commissionLayout.createParallelGroup(BASELINE)
+                        .addComponent(jLabelCommission)
+                        .addComponent(jTextFieldCommissionRate))
+
+
+                .addGroup(commissionLayout.createParallelGroup(LEADING)
+                        .addGroup(commissionLayout.createParallelGroup()
+                                .addGroup(commissionLayout.createParallelGroup(BASELINE))
+                                .addComponent(jButtonFinish))
+                        .addGroup(commissionLayout.createParallelGroup()
+                                .addComponent(jButtonCancel))
+                        .addGroup(commissionLayout.createParallelGroup()
+                                .addComponent(jButtonBack)))
+
+        );
+        //commissionLayout END
+
+        registrationFrame.add(commissionEmployeePanel);
+    }
+
 
     // private inner class for event handling
     private class TextFieldHandler implements ActionListener {
