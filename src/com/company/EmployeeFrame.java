@@ -49,13 +49,14 @@ public class EmployeeFrame {
     private JPanel hourlyEmployeePanel = new JPanel();
     private JFrame registrationFrame = new JFrame();
 
+
     //constructor
     public EmployeeFrame (){
 
     initRegistrationFrame();
 //    initSalariedEmployeeFrame();
-//    initHourlyEmployeePanel();
-//    initCommissionEmployeePanel();
+//    initHourlyEmployeeFrame();
+//    initCommissionEmployeeFrame();
         registrationFrame.setVisible(true);
         registrationFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         registrationFrame.setLocationRelativeTo(null);
@@ -77,13 +78,12 @@ public class EmployeeFrame {
     private void  buttonOk(ActionEvent e){
         if (jRadioButtonBasedSalaried.isSelected()){
             initSalariedEmployeeFrame();
-
         }
         if (jRadioButtonCommission.isSelected()){
-            initCommissionEmployeePanel();
+            initCommissionEmployeeFrame();
         }
         if (jRadioButtonHourly.isSelected()){
-            initHourlyEmployeePanel();
+            initHourlyEmployeeFrame();
         }
         if (jRadioButtonSalary.isSelected()){
             initSalariedEmployeeFrame();
@@ -102,6 +102,7 @@ private void initRegistrationFrame(){
 
     layoutRegistration.setAutoCreateGaps(true);
     layoutRegistration.setAutoCreateContainerGaps(true);
+
     jButtonOk.addActionListener(this::buttonOk);
 
     // layoutRegistration start
@@ -180,7 +181,7 @@ private void initRegistrationFrame(){
 }
 
 private void initSalariedEmployeeFrame(){
-
+        JFrame salariedFrame = new JFrame();
     GroupLayout salariedLayout = new GroupLayout(salariedEmployeePanel);
     salariedEmployeePanel.setLayout(salariedLayout);
 
@@ -221,12 +222,18 @@ private void initSalariedEmployeeFrame(){
     );
     //salariedLayout END
 
-    registrationFrame.add(salariedEmployeePanel);
-    registrationFrame.remove(registrationPanel);
+
+    registrationFrame.setVisible(false);
+    salariedFrame.setVisible(true);
+    salariedFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    salariedFrame.setLocationRelativeTo(null);
+    salariedFrame.setResizable(false);
+    salariedFrame.add(salariedEmployeePanel);
+    salariedFrame.pack();
 }
 
-    private void initHourlyEmployeePanel(){
-
+    private void initHourlyEmployeeFrame(){
+        JFrame hourlyFrame = new JFrame();
         GroupLayout hourlyLayout = new GroupLayout(hourlyEmployeePanel);
         hourlyEmployeePanel.setLayout(hourlyLayout);
 
@@ -282,11 +289,17 @@ private void initSalariedEmployeeFrame(){
 
         );
         //hourlyLayout END
-
-        registrationFrame.add(hourlyEmployeePanel);
+        registrationFrame.setVisible(false);
+        hourlyFrame.setVisible(true);
+        hourlyFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        hourlyFrame.setLocationRelativeTo(null);
+        hourlyFrame.setResizable(false);
+        hourlyFrame.add(salariedEmployeePanel);
+        hourlyFrame.add(hourlyEmployeePanel);
+        hourlyFrame.pack();
     }
-    private void initCommissionEmployeePanel(){
-
+    private void initCommissionEmployeeFrame(){
+        JFrame commissionFrame = new JFrame();
         GroupLayout commissionLayout = new GroupLayout(commissionEmployeePanel);
         commissionEmployeePanel.setLayout(commissionLayout);
 
@@ -326,8 +339,14 @@ private void initSalariedEmployeeFrame(){
 
         );
         //commissionLayout END
-
-        registrationFrame.add(commissionEmployeePanel);
+        registrationFrame.setVisible(false);
+        commissionFrame.setVisible(true);
+        commissionFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        commissionFrame.setLocationRelativeTo(null);
+        commissionFrame.setResizable(false);
+        commissionFrame.add(salariedEmployeePanel);
+        commissionFrame.add(commissionEmployeePanel);
+        commissionFrame.pack();
     }
 
 
