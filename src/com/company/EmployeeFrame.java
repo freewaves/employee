@@ -7,6 +7,7 @@ import static javax.swing.GroupLayout.Alignment.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
+import java.util.Vector;
 import javax.swing.JButton;
 
 
@@ -56,6 +57,7 @@ public class EmployeeFrame {
     private JFrame hourlyFrame = new JFrame();
     private JFrame commissionFrame = new JFrame();
     private JFrame baseCommissionFrame = new JFrame();
+    private JFrame tableEmployeeFrame = new JFrame();
     //panel
     private JPanel salariedEmployeePanel = new JPanel();
     private JPanel registrationPanel = new JPanel();
@@ -66,6 +68,7 @@ public class EmployeeFrame {
     //constructor
     public EmployeeFrame (){
 
+//        initTableEmployee();
     initRegistrationFrame();
 
 //handler registration
@@ -97,7 +100,7 @@ public class EmployeeFrame {
     }
 
 
-    //При нажатии back все нахрен закрывается
+
     private void buttonBack(ActionEvent e){
        registrationFrame.setVisible(true);
        if (jRadioButtonSalaried.isSelected()){
@@ -449,7 +452,38 @@ baseCommissionPanel.setLayout(commissionLayout);
     baseCommissionFrame.add(baseCommissionPanel);
     baseCommissionFrame.pack();
 }
+    private void initTableEmployee (){
 
+        String[][] array = new String[][] {{ "Анатолий Васерманович" , "ГлавБух", "15000" },
+                { "Сергей Андреевич"  , "Гл.Специалист", "10000" },
+                { "Андрей Сергеевич", "Директор" , "50000" },{ "Келебаев Кенешович", "Гл.Санузел" , "500" }};
+        String[] columnsHeader = new String[] {"ФИО", "Должность",
+                "З.П"};
+tableEmployeeFrame.setTitle("Table");
+tableEmployeeFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+
+        JTable table1 = new JTable(array, columnsHeader);
+
+
+        Vector<Vector<String>> data = new Vector<Vector<String>>();
+
+        for (int j = 0; j < array.length; j++) {
+            Vector<String> row = new Vector<String>();
+            for (int i = 0; i < array[j].length; i++) {
+                row.add((String)array[j][i]);
+            }
+            data.add(row);
+        }
+        Box contents = new Box(BoxLayout.Y_AXIS);
+        contents.add(new JScrollPane(table1));
+
+        tableEmployeeFrame.setContentPane(contents);
+        tableEmployeeFrame.setSize(500,400);
+        tableEmployeeFrame.setVisible(true);
+
+
+    }
     // private inner class for event handling
     private class TextFieldHandler implements ActionListener {
         // process text field events
