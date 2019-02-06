@@ -6,6 +6,8 @@ import static javax.swing.GroupLayout.Alignment.*;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import javax.swing.JButton;
 
 
 public class EmployeeFrame {
@@ -73,6 +75,10 @@ public class EmployeeFrame {
     jTextFieldSocialSecurityNumber.addActionListener(handler);
     jTextFieldDateOfBirth.addActionListener(handler);
     jTextFieldGrossSales.addActionListener(handler);
+
+    //button handler registration
+        ButtonHandler buttonHandler = new ButtonHandler();
+        jButtonFinish.addActionListener(buttonHandler);
     }
     //end EmployeeFrame constructor
     private void  buttonOk(ActionEvent e){
@@ -463,6 +469,45 @@ baseCommissionPanel.setLayout(commissionLayout);
                 empSsn = event.getActionCommand();
             if (event.getSource() == jTextFieldGrossSales)
                 empSales = Double.parseDouble(event.getActionCommand());
+        }
+    }
+    //private inner class for button Finish
+    private class ButtonHandler implements ActionListener {
+        public void actionPerformed(ActionEvent event) {
+            if(salariedEmployeePanel.isVisible()==true)
+            {
+
+                Date birthday2= new Date(1,13,1997);
+                ArrayList<SalariedEmployee> salariedEmployees= new ArrayList<SalariedEmployee>();
+                SalariedEmployee salariedEmployee=new SalariedEmployee("Marisha","Maeva",2000,
+                        "2930",500,birthday2);
+                salariedEmployees.add(salariedEmployee);
+            }
+            else if (commissionEmployeePanel.isVisible() == true)
+            {
+                Date myBirthday= new Date(12,2,1989);
+                ArrayList<CommissionEmployee> employees = new ArrayList <CommissionEmployee> ();
+                CommissionEmployee comEmployee = new CommissionEmployee("Ann","Mist",
+                        600,"278903",20,myBirthday);
+                employees.add(comEmployee);
+
+            }
+            else if (baseCommissionPanel.isVisible()==true)
+            {
+                Date today =new Date(1,18,2019);
+                ArrayList<BasePlusCommissionEmployee> basePlusCommissionEmployees = new ArrayList<BasePlusCommissionEmployee>();
+                BasePlusCommissionEmployee basePlusCommissionEmployee= new BasePlusCommissionEmployee("Nathalie",
+                        "Mall", 900,"8907",20,today,800,45);
+                basePlusCommissionEmployees.add(basePlusCommissionEmployee);
+            }
+            else if(hourlyEmployeePanel.isVisible()==true)
+            {
+                Date today =new Date(1,18,2019);
+                ArrayList<HourlyEmployee> hourlyEmployees=new ArrayList<HourlyEmployee>();
+                HourlyEmployee hourlyEmployee= new HourlyEmployee("Bob","Ross",800,
+                        "8590",today,12,45);
+                hourlyEmployees.add(hourlyEmployee);
+            }
         }
     }
 }
