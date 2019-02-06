@@ -21,15 +21,18 @@ public class EmployeeFrame {
     private JLabel jLabelHoursWorkedHourly = new JLabel("Hourly Worked");
     private JLabel jLabel40Hours = new JLabel("By default , base hours ber week are 40 hours");
     private JLabel jLabelCommission = new JLabel("Commission Rate");
+    private JLabel jLabelBaseCommissionRate = new JLabel("Commission Rate");
+    private JLabel jLabelBaseCommissionReward = new JLabel("Reward Rate");
+    private JLabel jLabelBaseCommissionSalary = new JLabel("Base Salary");
     //buttons init
     private JButton jButtonOk = new JButton("Ok");
     private JButton jButtonCancel = new JButton("Cancel");
     private JButton jButtonFinish = new JButton("Finish");
     private JButton jButtonBack = new JButton("Back");
     //radio buttons init
-    private JRadioButton jRadioButtonSalary = new JRadioButton("Salary Employee");
+    private JRadioButton jRadioButtonBaseCommission = new JRadioButton("Base Commission Employee");
     private JRadioButton jRadioButtonCommission = new JRadioButton("Commission Employee");
-    private JRadioButton jRadioButtonBasedSalaried = new JRadioButton("Based & Salaied Employee");
+    private JRadioButton jRadioButtonSalaried = new JRadioButton("Salary Employee");
     private JRadioButton jRadioButtonHourly = new JRadioButton("Hourly Employee");
     // text fields init
     private JTextField jTextFieldName = new JTextField(15);
@@ -42,29 +45,26 @@ public class EmployeeFrame {
     private JTextField jTextFieldOvertimeRateHourly = new JTextField(15);
     private JTextField jTextFieldHoursWorkedHourly = new JTextField(15);
     private JTextField jTextFieldCommissionRate = new JTextField(15);
-
-    private JPanel registrationPanel = new JPanel();
-    private JPanel commissionEmployeePanel = new JPanel();
-    private JPanel salariedEmployeePanel = new JPanel();
-    private JPanel hourlyEmployeePanel = new JPanel();
+    private JTextField jTextFieldBaseCommissionRate = new JTextField(15);
+    private JTextField jTextFieldBaseRewardRate = new JTextField(15);
+    private JTextField jTextFieldBaseSalary = new JTextField(15);
+    //Frame
     private JFrame registrationFrame = new JFrame();
-
+    private JFrame salariedFrame = new JFrame();
+    private JFrame hourlyFrame = new JFrame();
+    private JFrame commissionFrame = new JFrame();
+    private JFrame baseCommissionFrame = new JFrame();
+    //panel
+    private JPanel salariedEmployeePanel = new JPanel();
+    private JPanel registrationPanel = new JPanel();
+    private JPanel hourlyEmployeePanel = new JPanel();
+    private JPanel commissionEmployeePanel = new JPanel();
+    private JPanel baseCommissionPanel = new JPanel();
 
     //constructor
     public EmployeeFrame (){
 
     initRegistrationFrame();
-//    initSalariedEmployeeFrame();
-//    initHourlyEmployeeFrame();
-//    initCommissionEmployeeFrame();
-        registrationFrame.setVisible(true);
-        registrationFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        registrationFrame.setLocationRelativeTo(null);
-        registrationFrame.setResizable(false);
-        registrationFrame.pack();
-    //registrationFrame
-
-        //END registrationFrame
 
 //handler registration
     TextFieldHandler handler = new TextFieldHandler();
@@ -76,7 +76,7 @@ public class EmployeeFrame {
     }
     //end EmployeeFrame constructor
     private void  buttonOk(ActionEvent e){
-        if (jRadioButtonBasedSalaried.isSelected()){
+        if (jRadioButtonSalaried.isSelected()){
             initSalariedEmployeeFrame();
         }
         if (jRadioButtonCommission.isSelected()){
@@ -85,15 +85,42 @@ public class EmployeeFrame {
         if (jRadioButtonHourly.isSelected()){
             initHourlyEmployeeFrame();
         }
-        if (jRadioButtonSalary.isSelected()){
-            initSalariedEmployeeFrame();
+        if (jRadioButtonBaseCommission.isSelected()){
+            initBaseCommissionFrame();
         }
     }
 
+
+    //При нажатии back все нахрен закрывается
+    private void buttonBack(ActionEvent e){
+       registrationFrame.setVisible(true);
+       if (jRadioButtonSalaried.isSelected()){
+           salariedFrame.repaint();
+           salariedFrame.remove(salariedEmployeePanel);
+           salariedFrame.dispose();
+       }
+       if (jRadioButtonCommission.isSelected()){
+           commissionFrame.repaint();
+           commissionFrame.remove(commissionEmployeePanel);
+           commissionFrame.dispose();
+       }
+       if (jRadioButtonHourly.isSelected()){
+           registrationFrame.repaint();
+           hourlyFrame.remove(hourlyEmployeePanel);
+           hourlyFrame.dispose();
+       }
+       if (jRadioButtonBaseCommission.isSelected()){
+           baseCommissionFrame.repaint();
+           baseCommissionFrame.remove(baseCommissionPanel);
+           baseCommissionFrame.dispose();
+       }
+    }
+    //registrationFrame
 private void initRegistrationFrame(){
 
-    jRadioButtonBasedSalaried.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-    jRadioButtonSalary.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+
+    jRadioButtonSalaried.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+    jRadioButtonBaseCommission.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
     jRadioButtonHourly.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
     jRadioButtonCommission.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
@@ -104,7 +131,7 @@ private void initRegistrationFrame(){
     layoutRegistration.setAutoCreateContainerGaps(true);
 
     jButtonOk.addActionListener(this::buttonOk);
-
+    jButtonBack.addActionListener(this::buttonBack);
     // layoutRegistration start
     layoutRegistration.setHorizontalGroup(layoutRegistration.createSequentialGroup()
             .addGroup(layoutRegistration.createParallelGroup(LEADING)
@@ -121,11 +148,11 @@ private void initRegistrationFrame(){
                     .addComponent(jTextFieldGrossSales)
                     .addGroup(layoutRegistration.createSequentialGroup()
                             .addGroup(layoutRegistration.createParallelGroup(LEADING)
-                                    .addComponent(jRadioButtonBasedSalaried)
+                                    .addComponent(jRadioButtonSalaried)
                                     .addComponent(jRadioButtonCommission))
                             .addGroup(layoutRegistration.createParallelGroup(LEADING)
                                     .addComponent(jRadioButtonHourly)
-                                    .addComponent(jRadioButtonSalary)))
+                                    .addComponent(jRadioButtonBaseCommission)))
 
                     .addGroup(layoutRegistration.createSequentialGroup()
                             .addGroup(layoutRegistration.createParallelGroup(LEADING)
@@ -154,11 +181,11 @@ private void initRegistrationFrame(){
             .addGroup(layoutRegistration.createParallelGroup(LEADING)
                     .addGroup(layoutRegistration.createSequentialGroup()
                             .addGroup(layoutRegistration.createParallelGroup(BASELINE)
-                                    .addComponent(jRadioButtonBasedSalaried)
+                                    .addComponent(jRadioButtonSalaried)
                                     .addComponent(jRadioButtonHourly))
                             .addGroup(layoutRegistration.createParallelGroup(BASELINE)
                                     .addComponent(jRadioButtonCommission)
-                                    .addComponent(jRadioButtonSalary))))
+                                    .addComponent(jRadioButtonBaseCommission))))
 
             .addGroup(layoutRegistration.createParallelGroup(LEADING)
                     .addGroup(layoutRegistration.createParallelGroup()
@@ -172,16 +199,23 @@ private void initRegistrationFrame(){
 
     //Added JButtonGroup RadioButton
     ButtonGroup buttonGroupRadio = new ButtonGroup();
-    buttonGroupRadio.add(jRadioButtonBasedSalaried);
+    buttonGroupRadio.add(jRadioButtonSalaried);
     buttonGroupRadio.add(jRadioButtonCommission);
     buttonGroupRadio.add(jRadioButtonHourly);
-    buttonGroupRadio.add(jRadioButtonSalary);
+    buttonGroupRadio.add(jRadioButtonBaseCommission);
     //END
     registrationFrame.add(registrationPanel);
+    registrationFrame.setVisible(true);
+    registrationFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    registrationFrame.setLocationRelativeTo(null);
+    registrationFrame.setResizable(false);
+    registrationFrame.pack();
+    //END registrationFrame
 }
 
 private void initSalariedEmployeeFrame(){
-        JFrame salariedFrame = new JFrame();
+
+
     GroupLayout salariedLayout = new GroupLayout(salariedEmployeePanel);
     salariedEmployeePanel.setLayout(salariedLayout);
 
@@ -232,8 +266,9 @@ private void initSalariedEmployeeFrame(){
     salariedFrame.pack();
 }
 
-    private void initHourlyEmployeeFrame(){
-        JFrame hourlyFrame = new JFrame();
+    public void initHourlyEmployeeFrame(){
+
+
         GroupLayout hourlyLayout = new GroupLayout(hourlyEmployeePanel);
         hourlyEmployeePanel.setLayout(hourlyLayout);
 
@@ -294,12 +329,12 @@ private void initSalariedEmployeeFrame(){
         hourlyFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         hourlyFrame.setLocationRelativeTo(null);
         hourlyFrame.setResizable(false);
-        hourlyFrame.add(salariedEmployeePanel);
         hourlyFrame.add(hourlyEmployeePanel);
         hourlyFrame.pack();
     }
     private void initCommissionEmployeeFrame(){
-        JFrame commissionFrame = new JFrame();
+
+
         GroupLayout commissionLayout = new GroupLayout(commissionEmployeePanel);
         commissionEmployeePanel.setLayout(commissionLayout);
 
@@ -344,11 +379,70 @@ private void initSalariedEmployeeFrame(){
         commissionFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         commissionFrame.setLocationRelativeTo(null);
         commissionFrame.setResizable(false);
-        commissionFrame.add(salariedEmployeePanel);
         commissionFrame.add(commissionEmployeePanel);
         commissionFrame.pack();
     }
 
+private void initBaseCommissionFrame (){
+
+
+    GroupLayout commissionLayout = new GroupLayout(baseCommissionPanel);
+baseCommissionPanel.setLayout(commissionLayout);
+
+    commissionLayout.setAutoCreateGaps(true);
+    commissionLayout.setAutoCreateContainerGaps(true);
+
+    commissionLayout.setHorizontalGroup(commissionLayout.createSequentialGroup()
+            .addGroup(commissionLayout.createParallelGroup(LEADING)
+                    .addComponent(jLabelBaseCommissionRate)
+                    .addComponent(jLabelBaseCommissionReward)
+                    .addComponent(jLabelBaseCommissionSalary))
+            .addGroup(commissionLayout.createParallelGroup(LEADING)
+                    .addComponent(jTextFieldBaseCommissionRate)
+                    .addComponent(jTextFieldBaseRewardRate)
+                    .addComponent(jTextFieldBaseSalary)
+
+
+                    .addGroup(commissionLayout.createSequentialGroup()
+                            .addGroup(commissionLayout.createParallelGroup(LEADING)
+                                    .addComponent(jButtonFinish))
+                            .addGroup(commissionLayout.createParallelGroup(LEADING)
+                                    .addComponent(jButtonBack))
+                            .addGroup(commissionLayout.createParallelGroup(LEADING)
+                                    .addComponent(jButtonCancel)))
+            )
+
+    );
+    commissionLayout.setVerticalGroup(commissionLayout.createSequentialGroup()
+            .addGroup(commissionLayout.createParallelGroup(BASELINE)
+                    .addComponent(jLabelBaseCommissionRate)
+                    .addComponent(jTextFieldBaseCommissionRate))
+            .addGroup(commissionLayout.createParallelGroup()
+                    .addComponent(jLabelBaseCommissionReward)
+                    .addComponent(jTextFieldBaseRewardRate))
+            .addGroup(commissionLayout.createParallelGroup()
+                    .addComponent(jLabelBaseCommissionSalary)
+                    .addComponent(jTextFieldBaseSalary))
+
+            .addGroup(commissionLayout.createParallelGroup(LEADING)
+                    .addGroup(commissionLayout.createParallelGroup()
+                            .addGroup(commissionLayout.createParallelGroup(BASELINE))
+                            .addComponent(jButtonFinish))
+                    .addGroup(commissionLayout.createParallelGroup()
+                            .addComponent(jButtonCancel))
+                    .addGroup(commissionLayout.createParallelGroup()
+                            .addComponent(jButtonBack)))
+
+    );
+
+    registrationFrame.setVisible(false);
+    baseCommissionFrame.setVisible(true);
+    baseCommissionFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    baseCommissionFrame.setLocationRelativeTo(null);
+    baseCommissionFrame.setResizable(false);
+    baseCommissionFrame.add(baseCommissionPanel);
+    baseCommissionFrame.pack();
+}
 
     // private inner class for event handling
     private class TextFieldHandler implements ActionListener {
