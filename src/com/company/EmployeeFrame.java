@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 
 
 public class EmployeeFrame {
@@ -64,6 +65,10 @@ public class EmployeeFrame {
     private JPanel hourlyEmployeePanel = new JPanel();
     private JPanel commissionEmployeePanel = new JPanel();
     private JPanel baseCommissionPanel = new JPanel();
+    //combobox
+    private JComboBox dayComboBox= new JComboBox();
+    private JComboBox monthComboBox=new JComboBox();
+    private JComboBox yearComboBox=new JComboBox ();
 
     //constructor
     public EmployeeFrame (){
@@ -153,8 +158,19 @@ private void initRegistrationFrame(){
                     .addComponent(jTextFieldName)
                     .addComponent(jTextFieldLastName)
                     .addComponent(jTextFieldSocialSecurityNumber)
-                    .addComponent(jTextFieldDateOfBirth)
+
+                    .addGroup(layoutRegistration.createSequentialGroup()
+                    .addGroup(layoutRegistration.createParallelGroup(LEADING)
+                            .addComponent(dayComboBox))
+                            .addGroup(layoutRegistration.createParallelGroup(LEADING)
+                                    .addComponent(monthComboBox))
+                            .addGroup(layoutRegistration.createParallelGroup(LEADING)
+                                    .addComponent(yearComboBox)))
+
+
                     .addComponent(jTextFieldGrossSales)
+
+
                     .addGroup(layoutRegistration.createSequentialGroup()
                             .addGroup(layoutRegistration.createParallelGroup(LEADING)
                                     .addComponent(jRadioButtonSalaried)
@@ -167,9 +183,9 @@ private void initRegistrationFrame(){
                             .addGroup(layoutRegistration.createParallelGroup(LEADING)
                                     .addComponent(jButtonOk))
                             .addGroup(layoutRegistration.createParallelGroup(LEADING)
-                                    .addComponent(jButtonCancel)))
-            )
-    );
+                                    .addComponent(jButtonCancel))))
+                    );
+
     layoutRegistration.setVerticalGroup(layoutRegistration.createSequentialGroup()
             .addGroup(layoutRegistration.createParallelGroup(BASELINE)
                     .addComponent(jLabelName)
@@ -182,7 +198,12 @@ private void initRegistrationFrame(){
                     .addComponent(jTextFieldSocialSecurityNumber))
             .addGroup(layoutRegistration.createParallelGroup()
                     .addComponent(jLabelDateOfBirth)
-                    .addComponent(jTextFieldDateOfBirth))
+                    .addGroup(layoutRegistration.createParallelGroup(LEADING)
+                    .addGroup(layoutRegistration.createSequentialGroup()
+                            .addGroup(layoutRegistration.createParallelGroup(BASELINE)
+                            .addComponent(dayComboBox)
+                            .addComponent(monthComboBox)
+                            .addComponent(yearComboBox)))))
             .addGroup(layoutRegistration.createParallelGroup()
                     .addComponent(jLabelGrossSales)
                     .addComponent(jTextFieldGrossSales))
