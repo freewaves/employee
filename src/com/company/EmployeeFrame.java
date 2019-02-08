@@ -72,12 +72,13 @@ public class EmployeeFrame {
     private JPanel baseCommissionPanel = new JPanel();
     private JPanel loginPanel = new JPanel();
     //combobox
-    private JComboBox dayComboBox= new JComboBox();
-    private JComboBox monthComboBox=new JComboBox();
-    private JComboBox yearComboBox=new JComboBox ();
+    private JComboBox dayComboBox ;
+    private JComboBox monthComboBox;
+    private JComboBox yearComboBox;
     //combobox values
     private static final String[] monthsCombo={"JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC" };
-    private int[] months={1,2,3,4,5,6,7,8,9,10,11,12};
+    private static final String  [] yearsCombo = {"1997","1996","1995","1994","1993","1992","1991","1990","1989","1988","1987","1986","1985","1984","1983","1982","1981","1980","1979","1978","1977","1976","1975","1974","1973","1972","1971","1970",};
+    private static final String[]dayCombo = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"};
     private JLabel labelMonthComboBox;
     //constructor
     public EmployeeFrame (){
@@ -100,16 +101,22 @@ public class EmployeeFrame {
 
 
         //comboBox init
+        dayComboBox = new JComboBox(dayCombo);
+        yearComboBox = new JComboBox(yearsCombo);
         monthComboBox= new JComboBox(monthsCombo);
         monthComboBox.setMaximumRowCount(10);
         monthComboBox.addActionListener(
-                new ActionListener() //anonymous class
+                //anonymous class
+                new ActionListener()
                 {
-                    public void actionPerformed(ActionEvent e)
-                    {
-                        String data = "month selected "
-                                + monthComboBox.getItemAt(monthComboBox.getSelectedIndex());
-                        labelMonthComboBox.setText(data);
+                    public void actionPerformed(ActionEvent e) {
+                        int numMonth =0;
+                        for (int i = 1 ; i<=monthComboBox.getSelectedIndex();++i){
+                            numMonth = i+1;
+                        }
+                        System.out.println(numMonth);
+                        System.out.println(yearComboBox.getSelectedItem());
+                        System.out.println(dayComboBox.getSelectedItem());
                     }
 
                 });
