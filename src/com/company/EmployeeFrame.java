@@ -35,6 +35,8 @@ public class EmployeeFrame {
     private JButton jButtonCancel = new JButton("Cancel");
     private JButton jButtonFinish = new JButton("Finish");
     private JButton jButtonBack = new JButton("Back");
+    private JButton jButtonRegistration = new JButton("Registration");
+    private JButton jButtonTable = new JButton("Table");
     //radio buttons init
     private JRadioButton jRadioButtonBaseCommission = new JRadioButton("Base Commission Employee");
     private JRadioButton jRadioButtonCommission = new JRadioButton("Commission Employee");
@@ -61,12 +63,14 @@ public class EmployeeFrame {
     private JFrame commissionFrame = new JFrame();
     private JFrame baseCommissionFrame = new JFrame();
     private JFrame tableEmployeeFrame = new JFrame();
+    private JFrame loginFrame = new JFrame();
     //panel
     private JPanel salariedEmployeePanel = new JPanel();
     private JPanel registrationPanel = new JPanel();
     private JPanel hourlyEmployeePanel = new JPanel();
     private JPanel commissionEmployeePanel = new JPanel();
     private JPanel baseCommissionPanel = new JPanel();
+    private JPanel loginPanel = new JPanel();
     //combobox
     private JComboBox dayComboBox= new JComboBox();
     private JComboBox monthComboBox=new JComboBox();
@@ -79,7 +83,8 @@ public class EmployeeFrame {
     public EmployeeFrame (){
 
 //        initTableEmployee();
-    initRegistrationFrame();
+//    initRegistrationFrame();
+    initLoginFrame();
 
 //handler registration
     TextFieldHandler handler = new TextFieldHandler();
@@ -522,9 +527,49 @@ tableEmployeeFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         tableEmployeeFrame.setContentPane(contents);
         tableEmployeeFrame.setSize(500,400);
+        tableEmployeeFrame.setLocationRelativeTo(null);
         tableEmployeeFrame.setVisible(true);
 
+    }
 
+
+    private void registrationButton(ActionEvent e){
+        initRegistrationFrame();
+        loginFrame.setVisible(false);
+        loginFrame.dispose();
+    }
+    private void tableButton(ActionEvent e){
+        initTableEmployee();
+        loginFrame.setVisible(false);
+        loginFrame.dispose();
+    }
+    private void initLoginFrame(){
+        GroupLayout loginLayout = new GroupLayout(loginPanel);
+        loginPanel.setLayout(loginLayout);
+jButtonRegistration.addActionListener(this::registrationButton);
+jButtonTable.addActionListener(this::tableButton);
+        loginLayout.setAutoCreateGaps(true);
+        loginLayout.setAutoCreateContainerGaps(true);
+
+        // loginLayout start
+        loginLayout.setHorizontalGroup(loginLayout.createSequentialGroup()
+                .addGroup(loginLayout.createParallelGroup(LEADING)
+                        .addComponent(jButtonRegistration))
+                .addGroup(loginLayout.createParallelGroup(LEADING)
+                        .addComponent(jButtonTable))
+        );
+        loginLayout.setVerticalGroup(loginLayout.createSequentialGroup()
+                .addGroup(loginLayout.createParallelGroup(BASELINE)
+                        .addComponent(jButtonRegistration)
+                        .addComponent(jButtonTable))
+        );
+        //loginLayout END
+        loginFrame.setVisible(true);
+        loginFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        loginFrame.setLocationRelativeTo(null);
+        loginFrame.setResizable(false);
+        loginFrame.add(loginPanel);
+        loginFrame.pack();
     }
     // private inner class for event handling
     private class TextFieldHandler implements ActionListener {
