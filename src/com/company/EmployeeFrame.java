@@ -6,6 +6,8 @@ import static javax.swing.GroupLayout.Alignment.*;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.JButton;
@@ -69,7 +71,10 @@ public class EmployeeFrame {
     private JComboBox dayComboBox= new JComboBox();
     private JComboBox monthComboBox=new JComboBox();
     private JComboBox yearComboBox=new JComboBox ();
-
+    //combobox values
+    private static final String[] monthsCombo={"JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC" };
+    private int[] months={1,2,3,4,5,6,7,8,9,10,11,12};
+    private JLabel labelMonthComboBox;
     //constructor
     public EmployeeFrame (){
 
@@ -87,6 +92,22 @@ public class EmployeeFrame {
     //button handler registration
         ButtonHandler buttonHandler = new ButtonHandler();
         jButtonFinish.addActionListener(buttonHandler);
+
+
+        //comboBox init
+        monthComboBox= new JComboBox(monthsCombo);
+        monthComboBox.setMaximumRowCount(10);
+        monthComboBox.addActionListener(
+                new ActionListener() //anonymous class
+                {
+                    public void actionPerformed(ActionEvent e)
+                    {
+                        String data = "month selected "
+                                + monthComboBox.getItemAt(monthComboBox.getSelectedIndex());
+                        labelMonthComboBox.setText(data);
+                    }
+
+                });
     }
     //end EmployeeFrame constructor
     private void  buttonOk(ActionEvent e){
