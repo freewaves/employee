@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4038b545-1a5f-4d62-8ba6-3876072fe863" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/polymorphic/com/company/EmployeeFrame$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/polymorphic/com/company/EmployeeFrame$ButtonHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/polymorphic/com/company/EmployeeFrame$TextFieldHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/polymorphic/com/company/EmployeeFrame.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/EmployeeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/EmployeeFrame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -22,15 +18,15 @@
       <file leaf-file-name="EmployeeFrame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/EmployeeFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-337">
-              <caret line="61" column="19" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="19" />
+            <state relative-caret-position="126">
+              <caret line="595" lean-forward="true" selection-start-line="595" selection-end-line="595" />
               <folding>
-                <element signature="e#24464#24480#0" expanded="true" />
-                <element signature="e#24577#24585#0" expanded="true" />
-                <element signature="e#27949#27967#0" expanded="true" />
-                <element signature="e#28390#28410#0" expanded="true" />
-                <element signature="e#28833#28861#0" expanded="true" />
-                <element signature="e#29324#29340#0" expanded="true" />
+                <element signature="e#25088#25104#0" expanded="true" />
+                <element signature="e#25201#25209#0" expanded="true" />
+                <element signature="e#28563#28581#0" expanded="true" />
+                <element signature="e#29004#29024#0" expanded="true" />
+                <element signature="e#29447#29475#0" expanded="true" />
+                <element signature="e#29938#29954#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -39,8 +35,8 @@
       <file leaf-file-name="Date.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Date.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-167">
-              <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+            <state relative-caret-position="136">
+              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -95,9 +91,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -120,6 +113,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -211,7 +207,8 @@
       <workItem from="1549417022993" duration="6045000" />
       <workItem from="1549526573267" duration="8814000" />
       <workItem from="1549618311927" duration="1856000" />
-      <workItem from="1549598996722" duration="4769000" />
+      <workItem from="1549598996722" duration="7116000" />
+      <workItem from="1549682602885" duration="1025000" />
     </task>
     <task id="LOCAL-00001" summary="Added JradioButton">
       <created>1548393982208</created>
@@ -290,11 +287,18 @@
       <option name="project" value="LOCAL" />
       <updated>1549418678441</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix ComboBox">
+      <created>1549604037854</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1549604037854</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161921000" />
+    <option name="totallyTimeSpent" value="165293000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -348,7 +352,8 @@
     <MESSAGE value="Added ButtonListener" />
     <MESSAGE value="Fix bug" />
     <MESSAGE value="Added button back" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added button back" />
+    <MESSAGE value="fix ComboBox" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix ComboBox" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -360,12 +365,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
-            <element signature="e#24464#24480#0" expanded="true" />
-            <element signature="e#24577#24585#0" expanded="true" />
-            <element signature="e#27949#27967#0" expanded="true" />
-            <element signature="e#28390#28410#0" expanded="true" />
-            <element signature="e#28833#28861#0" expanded="true" />
-            <element signature="e#29324#29340#0" expanded="true" />
+            <element signature="e#25088#25104#0" expanded="true" />
+            <element signature="e#25201#25209#0" expanded="true" />
+            <element signature="e#28563#28581#0" expanded="true" />
+            <element signature="e#29004#29024#0" expanded="true" />
+            <element signature="e#29447#29475#0" expanded="true" />
+            <element signature="e#29938#29954#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -381,12 +386,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
-            <element signature="e#24464#24480#0" expanded="true" />
-            <element signature="e#24577#24585#0" expanded="true" />
-            <element signature="e#27949#27967#0" expanded="true" />
-            <element signature="e#28390#28410#0" expanded="true" />
-            <element signature="e#28833#28861#0" expanded="true" />
-            <element signature="e#29324#29340#0" expanded="true" />
+            <element signature="e#25088#25104#0" expanded="true" />
+            <element signature="e#25201#25209#0" expanded="true" />
+            <element signature="e#28563#28581#0" expanded="true" />
+            <element signature="e#29004#29024#0" expanded="true" />
+            <element signature="e#29447#29475#0" expanded="true" />
+            <element signature="e#29938#29954#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -719,22 +724,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Date.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-167">
-          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+        <state relative-caret-position="136">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/EmployeeFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-337">
-          <caret line="61" column="19" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="19" />
+        <state relative-caret-position="126">
+          <caret line="595" lean-forward="true" selection-start-line="595" selection-end-line="595" />
           <folding>
-            <element signature="e#24464#24480#0" expanded="true" />
-            <element signature="e#24577#24585#0" expanded="true" />
-            <element signature="e#27949#27967#0" expanded="true" />
-            <element signature="e#28390#28410#0" expanded="true" />
-            <element signature="e#28833#28861#0" expanded="true" />
-            <element signature="e#29324#29340#0" expanded="true" />
+            <element signature="e#25088#25104#0" expanded="true" />
+            <element signature="e#25201#25209#0" expanded="true" />
+            <element signature="e#28563#28581#0" expanded="true" />
+            <element signature="e#29004#29024#0" expanded="true" />
+            <element signature="e#29447#29475#0" expanded="true" />
+            <element signature="e#29938#29954#0" expanded="true" />
           </folding>
         </state>
       </provider>

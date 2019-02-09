@@ -64,13 +64,6 @@ public class EmployeeFrame {
     private JFrame baseCommissionFrame = new JFrame();
     private JFrame tableEmployeeFrame = new JFrame();
     private JFrame loginFrame = new JFrame();
-    //panel
-    private JPanel salariedEmployeePanel = new JPanel();
-    private JPanel registrationPanel = new JPanel();
-    private JPanel hourlyEmployeePanel = new JPanel();
-    private JPanel commissionEmployeePanel = new JPanel();
-    private JPanel baseCommissionPanel = new JPanel();
-    private JPanel loginPanel = new JPanel();
     //combobox
     private JComboBox dayComboBox ;
     private JComboBox monthComboBox;
@@ -143,22 +136,18 @@ public class EmployeeFrame {
        registrationFrame.setVisible(true);
        if (jRadioButtonSalaried.isSelected()){
            salariedFrame.repaint();
-           salariedFrame.remove(salariedEmployeePanel);
            salariedFrame.dispose();
        }
        if (jRadioButtonCommission.isSelected()){
            commissionFrame.repaint();
-           commissionFrame.remove(commissionEmployeePanel);
            commissionFrame.dispose();
        }
        if (jRadioButtonHourly.isSelected()){
            registrationFrame.repaint();
-           hourlyFrame.remove(hourlyEmployeePanel);
            hourlyFrame.dispose();
        }
        if (jRadioButtonBaseCommission.isSelected()){
            baseCommissionFrame.repaint();
-           baseCommissionFrame.remove(baseCommissionPanel);
            baseCommissionFrame.dispose();
        }
     }
@@ -171,8 +160,8 @@ private void initRegistrationFrame(){
     jRadioButtonHourly.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
     jRadioButtonCommission.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
-    GroupLayout layoutRegistration = new GroupLayout(registrationPanel);
-    registrationPanel.setLayout(layoutRegistration);
+    GroupLayout layoutRegistration = new GroupLayout(registrationFrame.getContentPane());
+    registrationFrame.getContentPane().setLayout(layoutRegistration);
 
     layoutRegistration.setAutoCreateGaps(true);
     layoutRegistration.setAutoCreateContainerGaps(true);
@@ -267,7 +256,6 @@ private void initRegistrationFrame(){
     buttonGroupRadio.add(jRadioButtonHourly);
     buttonGroupRadio.add(jRadioButtonBaseCommission);
     //END
-    registrationFrame.add(registrationPanel);
     registrationFrame.setVisible(true);
     registrationFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     registrationFrame.setLocationRelativeTo(null);
@@ -279,8 +267,8 @@ private void initRegistrationFrame(){
 private void initSalariedEmployeeFrame(){
 
 
-    GroupLayout salariedLayout = new GroupLayout(salariedEmployeePanel);
-    salariedEmployeePanel.setLayout(salariedLayout);
+    GroupLayout salariedLayout = new GroupLayout(salariedFrame.getContentPane());
+    salariedFrame.getContentPane().setLayout(salariedLayout);
 
     salariedLayout.setAutoCreateGaps(true);
     salariedLayout.setAutoCreateContainerGaps(true);
@@ -325,15 +313,14 @@ private void initSalariedEmployeeFrame(){
     salariedFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     salariedFrame.setLocationRelativeTo(null);
     salariedFrame.setResizable(false);
-    salariedFrame.add(salariedEmployeePanel);
     salariedFrame.pack();
 }
 
     public void initHourlyEmployeeFrame(){
 
 
-        GroupLayout hourlyLayout = new GroupLayout(hourlyEmployeePanel);
-        hourlyEmployeePanel.setLayout(hourlyLayout);
+        GroupLayout hourlyLayout = new GroupLayout(hourlyFrame.getContentPane());
+        hourlyFrame.getContentPane().setLayout(hourlyLayout);
 
         hourlyLayout.setAutoCreateGaps(true);
         hourlyLayout.setAutoCreateContainerGaps(true);
@@ -392,14 +379,13 @@ private void initSalariedEmployeeFrame(){
         hourlyFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         hourlyFrame.setLocationRelativeTo(null);
         hourlyFrame.setResizable(false);
-        hourlyFrame.add(hourlyEmployeePanel);
         hourlyFrame.pack();
     }
     private void initCommissionEmployeeFrame(){
 
 
-        GroupLayout commissionLayout = new GroupLayout(commissionEmployeePanel);
-        commissionEmployeePanel.setLayout(commissionLayout);
+        GroupLayout commissionLayout = new GroupLayout(commissionFrame.getContentPane());
+        commissionFrame.getContentPane().setLayout(commissionLayout);
 
         commissionLayout.setAutoCreateGaps(true);
         commissionLayout.setAutoCreateContainerGaps(true);
@@ -442,15 +428,14 @@ private void initSalariedEmployeeFrame(){
         commissionFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         commissionFrame.setLocationRelativeTo(null);
         commissionFrame.setResizable(false);
-        commissionFrame.add(commissionEmployeePanel);
         commissionFrame.pack();
     }
 
 private void initBaseCommissionFrame (){
 
 
-    GroupLayout commissionLayout = new GroupLayout(baseCommissionPanel);
-baseCommissionPanel.setLayout(commissionLayout);
+    GroupLayout commissionLayout = new GroupLayout(baseCommissionFrame.getContentPane());
+baseCommissionFrame.getContentPane().setLayout(commissionLayout);
 
     commissionLayout.setAutoCreateGaps(true);
     commissionLayout.setAutoCreateContainerGaps(true);
@@ -503,7 +488,6 @@ baseCommissionPanel.setLayout(commissionLayout);
     baseCommissionFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     baseCommissionFrame.setLocationRelativeTo(null);
     baseCommissionFrame.setResizable(false);
-    baseCommissionFrame.add(baseCommissionPanel);
     baseCommissionFrame.pack();
 }
     private void initTableEmployee (){
@@ -551,8 +535,8 @@ tableEmployeeFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         loginFrame.dispose();
     }
     private void initLoginFrame(){
-        GroupLayout loginLayout = new GroupLayout(loginPanel);
-        loginPanel.setLayout(loginLayout);
+        GroupLayout loginLayout = new GroupLayout(loginFrame.getContentPane());
+        loginFrame.setLayout(loginLayout);
 jButtonRegistration.addActionListener(this::registrationButton);
 jButtonTable.addActionListener(this::tableButton);
         loginLayout.setAutoCreateGaps(true);
@@ -575,7 +559,7 @@ jButtonTable.addActionListener(this::tableButton);
         loginFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         loginFrame.setLocationRelativeTo(null);
         loginFrame.setResizable(false);
-        loginFrame.add(loginPanel);
+
         loginFrame.pack();
     }
     // private inner class for event handling
@@ -602,7 +586,7 @@ jButtonTable.addActionListener(this::tableButton);
     //private inner class for button Finish
     private class ButtonHandler implements ActionListener {
         public void actionPerformed(ActionEvent event) {
-            if(salariedEmployeePanel.isVisible()==true)
+            if(salariedFrame.isVisible()==true)
             {
 
                 Date birthday2= new Date(1,13,1997);
@@ -611,7 +595,7 @@ jButtonTable.addActionListener(this::tableButton);
                         "2930",500,birthday2);
                 salariedEmployees.add(salariedEmployee);
             }
-            else if (commissionEmployeePanel.isVisible() == true)
+            else if (commissionFrame.isVisible() == true)
             {
                 Date myBirthday= new Date(12,2,1989);
                 ArrayList<CommissionEmployee> employees = new ArrayList <CommissionEmployee> ();
@@ -620,7 +604,7 @@ jButtonTable.addActionListener(this::tableButton);
                 employees.add(comEmployee);
 
             }
-            else if (baseCommissionPanel.isVisible()==true)
+            else if (baseCommissionFrame.isVisible()==true)
             {
                 Date today =new Date(1,18,2019);
                 ArrayList<BasePlusCommissionEmployee> basePlusCommissionEmployees = new ArrayList<BasePlusCommissionEmployee>();
@@ -628,7 +612,7 @@ jButtonTable.addActionListener(this::tableButton);
                         "Mall", 900,"8907",20,today,800,45);
                 basePlusCommissionEmployees.add(basePlusCommissionEmployee);
             }
-            else if(hourlyEmployeePanel.isVisible()==true)
+            else if(hourlyFrame.isVisible()==true)
             {
                 Date today =new Date(1,18,2019);
                 ArrayList<HourlyEmployee> hourlyEmployees=new ArrayList<HourlyEmployee>();
