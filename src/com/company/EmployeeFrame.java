@@ -62,7 +62,6 @@ public class EmployeeFrame {
     private JFrame hourlyFrame = new JFrame();
     private JFrame commissionFrame = new JFrame();
     private JFrame baseCommissionFrame = new JFrame();
-    private JFrame tableEmployeeFrame = new JFrame();
     private JFrame loginFrame = new JFrame();
     //combobox
     private JComboBox dayComboBox ;
@@ -100,8 +99,7 @@ public class EmployeeFrame {
         monthComboBox.setMaximumRowCount(10);
         monthComboBox.addActionListener(
                 //anonymous class
-                new ActionListener()
-                {
+                new ActionListener(){
                     public void actionPerformed(ActionEvent e) {
                         int numMonth =0;
                         for (int i = 1 ; i<=monthComboBox.getSelectedIndex();++i){
@@ -111,7 +109,6 @@ public class EmployeeFrame {
                         System.out.println(yearComboBox.getSelectedItem());
                         System.out.println(dayComboBox.getSelectedItem());
                     }
-
                 });
     }
     //end EmployeeFrame constructor
@@ -129,9 +126,6 @@ public class EmployeeFrame {
             initBaseCommissionFrame();
         }
     }
-
-
-
     private void buttonBack(ActionEvent e){
        registrationFrame.setVisible(true);
        if (jRadioButtonSalaried.isSelected()){
@@ -154,7 +148,8 @@ public class EmployeeFrame {
     //registrationFrame
 private void initRegistrationFrame(){
 
-
+    jButtonOk.addActionListener(this::buttonOk);
+    jButtonBack.addActionListener(this::buttonBack);
     jRadioButtonSalaried.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
     jRadioButtonBaseCommission.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
     jRadioButtonHourly.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -165,9 +160,6 @@ private void initRegistrationFrame(){
 
     layoutRegistration.setAutoCreateGaps(true);
     layoutRegistration.setAutoCreateContainerGaps(true);
-
-    jButtonOk.addActionListener(this::buttonOk);
-    jButtonBack.addActionListener(this::buttonBack);
     // layoutRegistration start
     layoutRegistration.setHorizontalGroup(layoutRegistration.createSequentialGroup()
             .addGroup(layoutRegistration.createParallelGroup(LEADING)
@@ -490,39 +482,6 @@ baseCommissionFrame.getContentPane().setLayout(commissionLayout);
     baseCommissionFrame.setResizable(false);
     baseCommissionFrame.pack();
 }
-    private void initTableEmployee (){
-
-        String[][] array = new String[][] {{ "Анатолий Васерманович" , "ГлавБух", "15000" },
-                { "Сергей Андреевич"  , "Гл.Специалист", "10000" },
-                { "Андрей Сергеевич", "Директор" , "50000" },{ "Келебаев Кенешович", "Гл.Санузел" , "500" }};
-        String[] columnsHeader = new String[] {"ФИО", "Должность",
-                "З.П"};
-tableEmployeeFrame.setTitle("Table");
-tableEmployeeFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-
-        JTable table1 = new JTable(array, columnsHeader);
-
-
-        Vector<Vector<String>> data = new Vector<Vector<String>>();
-
-        for (int j = 0; j < array.length; j++) {
-            Vector<String> row = new Vector<String>();
-            for (int i = 0; i < array[j].length; i++) {
-                row.add((String)array[j][i]);
-            }
-            data.add(row);
-        }
-        Box contents = new Box(BoxLayout.Y_AXIS);
-        contents.add(new JScrollPane(table1));
-
-        tableEmployeeFrame.setContentPane(contents);
-        tableEmployeeFrame.setSize(500,400);
-        tableEmployeeFrame.setLocationRelativeTo(null);
-        tableEmployeeFrame.setVisible(true);
-
-    }
-
 
     private void registrationButton(ActionEvent e){
         initRegistrationFrame();
@@ -530,7 +489,8 @@ tableEmployeeFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         loginFrame.dispose();
     }
     private void tableButton(ActionEvent e){
-        initTableEmployee();
+        TableFrame tableFrame = new TableFrame();
+        tableFrame.initTableEmployee();
         loginFrame.setVisible(false);
         loginFrame.dispose();
     }
