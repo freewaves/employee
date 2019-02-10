@@ -147,7 +147,6 @@ public class EmployeeFrame {
     }
     //registrationFrame
 private void initRegistrationFrame(){
-
     jButtonOk.addActionListener(this::buttonOk);
     jButtonBack.addActionListener(this::buttonBack);
     jRadioButtonSalaried.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
