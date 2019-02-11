@@ -6,10 +6,7 @@ import static javax.swing.GroupLayout.Alignment.*;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.util.ArrayList;
-import java.util.Vector;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 
@@ -37,6 +34,7 @@ public class EmployeeFrame {
     private JButton jButtonBack = new JButton("Back");
     private JButton jButtonRegistration = new JButton("Registration");
     private JButton jButtonTable = new JButton("Table");
+    private JButton jButtonExit = new JButton("Exit");
     //radio buttons init
     private JRadioButton jRadioButtonBaseCommission = new JRadioButton("Base Commission Employee");
     private JRadioButton jRadioButtonCommission = new JRadioButton("Commission Employee");
@@ -126,22 +124,21 @@ public class EmployeeFrame {
             initBaseCommissionFrame();
         }
     }
+    private void buttonExit(ActionEvent e){
+        System.exit(0);
+    }
     private void buttonBack(ActionEvent e){
        registrationFrame.setVisible(true);
        if (jRadioButtonSalaried.isSelected()){
-           salariedFrame.repaint();
            salariedFrame.dispose();
        }
        if (jRadioButtonCommission.isSelected()){
-           commissionFrame.repaint();
            commissionFrame.dispose();
        }
        if (jRadioButtonHourly.isSelected()){
-           registrationFrame.repaint();
            hourlyFrame.dispose();
        }
        if (jRadioButtonBaseCommission.isSelected()){
-           baseCommissionFrame.repaint();
            baseCommissionFrame.dispose();
        }
     }
@@ -149,6 +146,7 @@ public class EmployeeFrame {
 private void initRegistrationFrame(){
     jButtonOk.addActionListener(this::buttonOk);
     jButtonBack.addActionListener(this::buttonBack);
+    jButtonExit.addActionListener(this::buttonExit);
     jRadioButtonSalaried.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
     jRadioButtonBaseCommission.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
     jRadioButtonHourly.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -174,7 +172,7 @@ private void initRegistrationFrame(){
 
                     .addGroup(layoutRegistration.createSequentialGroup()
                     .addGroup(layoutRegistration.createParallelGroup(LEADING)
-                            .addComponent(dayComboBox))
+                                    .addComponent(dayComboBox))
                             .addGroup(layoutRegistration.createParallelGroup(LEADING)
                                     .addComponent(monthComboBox))
                             .addGroup(layoutRegistration.createParallelGroup(LEADING)
@@ -196,7 +194,7 @@ private void initRegistrationFrame(){
                             .addGroup(layoutRegistration.createParallelGroup(LEADING)
                                     .addComponent(jButtonOk))
                             .addGroup(layoutRegistration.createParallelGroup(LEADING)
-                                    .addComponent(jButtonCancel))))
+                                    .addComponent(jButtonExit))))
                     );
 
     layoutRegistration.setVerticalGroup(layoutRegistration.createSequentialGroup()
@@ -235,7 +233,7 @@ private void initRegistrationFrame(){
                             .addGroup(layoutRegistration.createParallelGroup(BASELINE))
                             .addComponent(jButtonOk))
                     .addGroup(layoutRegistration.createParallelGroup()
-                            .addComponent(jButtonCancel)))
+                            .addComponent(jButtonExit)))
 
     );
     //layoutRegistration END
