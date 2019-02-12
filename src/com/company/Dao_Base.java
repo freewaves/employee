@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public abstract class Dao_Base {
     protected String driver = "null";
-    private  String url = "null";
+    protected   String url = "null";
 
 
     protected Properties properties  = null;    //Connection properties of the Connection object
